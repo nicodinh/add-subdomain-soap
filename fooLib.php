@@ -1,12 +1,12 @@
 <?php
 	
-    function isValidSubDomain($subDomain)
+	function isValidSubDomain($subDomain)
 	{	// check only [aA-zZ][0-9] character      
-        if (ctype_alnum($subDomain))
-            return 1;
-        else
-            return 0;   
-    }
+		if (ctype_alnum($subDomain))
+			return 1;
+		else
+			return 0;   
+	}
     
     function isSubDomainFreeDB($subDomain)
 	{	// return 1 = free subdomain
