@@ -8,26 +8,26 @@
 			return 0;   
 	}
     
-    function isSubDomainFreeDB($subDomain)
+	function isSubDomainFreeDB($subDomain)
 	{	// return 1 = free subdomain
-        $link = mysqli_connect("localhost", "user", "password", "dbname");
-        if (mysqli_connect_errno()) 
+		$link = mysqli_connect("localhost", "user", "password", "dbname");
+		if (mysqli_connect_errno()) 
 		{
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-        }
-        $query = "SELECT `subdomain` FROM `subdomains` WHERE `subdomain`='" . $subDomain . "'";
-        if ($result = mysqli_query($link, $query))
+			printf("Connect failed: %s\n", mysqli_connect_error());
+			exit();
+		}
+		$query = "SELECT `subdomain` FROM `subdomains` WHERE `subdomain`='" . $subDomain . "'";
+		if ($result = mysqli_query($link, $query))
 		{
-            $row = mysqli_fetch_assoc($result);
-            mysqli_free_result($result);
-           if (empty($row))
-                return 1;
-            else
-                return 0;
-        }
-        mysqli_close($link);
-    }
+			$row = mysqli_fetch_assoc($result);
+			mysqli_free_result($result);
+			if (empty($row))
+				return 1;
+			else
+				return 0;
+		}
+		mysqli_close($link);
+	}
     
     function isFreeDirectory($subDomain) 
 	{   // return 1 = free directory	
